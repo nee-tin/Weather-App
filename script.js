@@ -19,7 +19,7 @@ searchBtn.addEventListener("click", async () => {
 
     weatherDisplay.innerHTML = `
       <h2>${data.location.name}, ${data.location.country}</h2>
-      <p><strong>${data.current.temp_c} °C</strong></p>
+      <p><strong>${data.current.temp_c} Â°C</strong></p>
       <p>${data.current.condition.text}</p>
       <img src="https:${data.current.condition.icon}" alt="weather icon">
     `;
@@ -27,4 +27,11 @@ searchBtn.addEventListener("click", async () => {
     weatherDisplay.innerHTML = `<p>Error: ${err.message}</p>`;
   }
 });
+
+cityInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    searchBtn.click();   // pretend the button was clicked
+  }
+});
+
 
